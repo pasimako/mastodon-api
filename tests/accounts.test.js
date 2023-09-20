@@ -52,6 +52,15 @@ describe("Accounts", () => {
     );
   });
 
+  it("should getStatuses", async () => {
+    await accounts.getStatuses(id, options);
+    expect(request.getEndpointArray).toHaveBeenCalledTimes(1);
+    expect(request.getEndpointArray).toHaveBeenCalledWith(
+      `/api/v1/accounts/${id}/statuses`,
+      options,
+    );
+  });
+
   it("should getFollowing", async () => {
     await accounts.getFollowing(id, options);
     expect(request.getEndpointArray).toHaveBeenCalledTimes(1);
